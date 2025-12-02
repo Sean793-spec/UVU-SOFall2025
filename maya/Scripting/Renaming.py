@@ -34,8 +34,6 @@ def rename_nodes(pattern: str,
 
     if reverse:
         nodes = list(reversed(nodes))
-
-    # validate pattern and compute padding width
     _, hash_count = _find_hash_run(pattern)
     width = hash_count
 
@@ -55,8 +53,7 @@ def rename_nodes(pattern: str,
 
     return mapping
 
-def rename_selection(pattern: str, start: int = 1, step: int = 1, reverse: bool = False) -> Dict[str, str]:
+def rename(pattern: str, start: int = 1, step: int = 1, reverse: bool = False) -> Dict[str, str]:
     """Convenience wrapper: rename the current Maya selection with `pattern`."""
     return rename_nodes(pattern, start=start, step=step, nodes=None, reverse=reverse)
 
-#make sure that after sending this code through you need to use rename_selection function and not rename to rename the selected objects in maya.
